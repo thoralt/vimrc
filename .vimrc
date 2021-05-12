@@ -30,6 +30,7 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set splitbelow
 
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
