@@ -8,6 +8,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Set color scheme, font, airline
