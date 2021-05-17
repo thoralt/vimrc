@@ -7,6 +7,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Set color scheme, font, airline
@@ -30,6 +31,7 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set relativenumber
 set splitbelow
 
 " Vim with all enhancements
