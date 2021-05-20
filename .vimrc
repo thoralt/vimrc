@@ -8,6 +8,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Set color scheme, font, airline
@@ -31,8 +32,10 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+
 set relativenumber
 set splitbelow
+set hidden
 
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
