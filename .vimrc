@@ -9,6 +9,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " Set color scheme, font, airline
@@ -33,6 +35,7 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 
+set cursorline
 set relativenumber
 set splitbelow
 set hidden
@@ -77,3 +80,8 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
+
+let mapleader = " "
+nnoremap <silent> <Leader><Space> :Files<CR>
+imap jk <Esc>
+
