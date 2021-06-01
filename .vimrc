@@ -11,6 +11,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'ap/vim-css-color'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Set color scheme, font, airline
@@ -83,5 +87,5 @@ endfunction
 
 let mapleader = " "
 nnoremap <silent> <Leader><Space> :Files<CR>
-imap jk <Esc>
-
+imap jj <Esc>
+nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
