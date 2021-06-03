@@ -15,7 +15,10 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'ap/vim-css-color'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 call plug#end()
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 
 " Set color scheme, font, airline
 set termguicolors
@@ -43,6 +46,7 @@ set cursorline
 set relativenumber
 set splitbelow
 set hidden
+set nobackup
 
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
