@@ -93,3 +93,4 @@ let mapleader = " "
 nnoremap <silent> <Leader><Space> :Files<CR>
 imap jj <Esc>
 nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :botright vertical terminal<CR>
