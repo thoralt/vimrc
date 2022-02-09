@@ -5,6 +5,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'davidhalter/jedi-vim'
 Plug 'arcticicestudio/nord-vim'
+" Plug 'morhetz/gruvbox'
+" Plug 'mhartington/oceanic-next'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -16,13 +18,21 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-eslint'
 \ ]
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ap/vim-css-color'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'jiangmiao/auto-pairs'
 " Plug 'alvan/vim-closetag'
-"
+
+" Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+" Plug 'BurntSushi/ripgrep'
+" Plug 'sharkdp/fd'
+
 call plug#end()
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
@@ -33,7 +43,13 @@ set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI
 set encoding=utf-8
 set fileencoding=utf-8
 let g:airline_powerline_fonts = 1
+let g:airline_theme='simple'
+" disable file type and charset display in status line
+let g:airline_section_x = ''
+let g:airline_section_y = ''
 colorscheme nord
+" colorscheme gruvbox
+" colorscheme OceanicNyext
 set background=dark
 
 " netrw file browser
@@ -55,9 +71,11 @@ set relativenumber
 set splitbelow
 set hidden
 set nobackup
+set ignorecase
+set smartcase
 
 " Vim with all enhancements
-source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/vimrc_example.vim
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
@@ -98,7 +116,12 @@ endif
 endfunction
 
 let mapleader = " "
-nnoremap <silent> <Leader><Space> :Files<CR>
+nnoremap <silent> <Leader><Space> :Telescope find_files<CR>
+nnoremap <silent> <Leader>l :Telescope live_grep<CR>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 6/5)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 5/6)<CR>
+" old setting for invocation of fzf
+" nnoremap <silent> <Leader><Space> :Files<CR>
 imap jj <Esc>
 " nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :botright vertical terminal<CR>
@@ -120,7 +143,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -216,7 +239,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>q  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
