@@ -16,10 +16,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
 \ 'coc-tsserver',
-\ 'coc-eslint'
+\ 'coc-eslint',
+\ 'coc-go'
 \ ]
 Plug 'ap/vim-css-color'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
+Plug 'sbdchd/neoformat'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'alvan/vim-closetag'
 
@@ -63,6 +66,7 @@ let g:netrw_winsize=25
 syntax on
 set expandtab
 set shiftwidth=4
+set tabstop=4
 set softtabstop=4
 set autoindent
 
@@ -301,3 +305,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " ===========================================================
 " coc.nvim configuration end
 " ===========================================================
+
+tnoremap <esc> <C-\><C-N>
