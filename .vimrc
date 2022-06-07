@@ -1,44 +1,44 @@
 " Load plugins
 call plug#begin()
+
+" git related plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" autocompletion for python
 Plug 'davidhalter/jedi-vim'
-Plug 'arcticicestudio/nord-vim'
-" Plug 'morhetz/gruvbox'
+
+" color themes
+Plug 'morhetz/gruvbox'
+" Plug 'arcticicestudio/nord-vim'
 " Plug 'mhartington/oceanic-next'
+
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'airblade/vim-gitgutter'
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-\ 'coc-tsserver',
+\ 'coc-css',
 \ 'coc-eslint',
-\ 'coc-go'
+\ 'coc-go',
+\ 'coc-html',
+\ 'coc-json',
+\ 'coc-pairs',
+\ 'coc-prettier',
+\ 'coc-tsserver'
 \ ]
 Plug 'ap/vim-css-color'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-" Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
-Plug 'sbdchd/neoformat'
-Plug 'jiangmiao/auto-pairs'
-" Plug 'alvan/vim-closetag'
 
-" Plug 'junegunn/fzf.vim'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-" Plug 'BurntSushi/ripgrep'
-" Plug 'sharkdp/fd'
 
 call plug#end()
-
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 
 " Set color scheme, font, airline
 set termguicolors
@@ -50,8 +50,8 @@ let g:airline_theme='simple'
 " disable file type and charset display in status line
 let g:airline_section_x = ''
 let g:airline_section_y = ''
-colorscheme nord
-" colorscheme gruvbox
+" colorscheme nord
+colorscheme gruvbox
 " colorscheme OceanicNyext
 set background=dark
 
@@ -77,9 +77,6 @@ set hidden
 set nobackup
 set ignorecase
 set smartcase
-
-" Vim with all enhancements
-" source $VIMRUNTIME/vimrc_example.vim
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
@@ -124,10 +121,9 @@ nnoremap <silent> <Leader><Space> :Telescope find_files<CR>
 nnoremap <silent> <Leader>l :Telescope live_grep<CR>
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 6/5)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 5/6)<CR>
-" old setting for invocation of fzf
-" nnoremap <silent> <Leader><Space> :Files<CR>
+nnoremap <silent> <Leader>* :exe "resize " . (winheight(0) * 6/5)<CR>
+nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 5/6)<CR>
 imap jj <Esc>
-" nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :botright vertical terminal<CR>
 nnoremap <leader>e :Vexplore<CR>
 
@@ -222,10 +218,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <leader>f <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>p :Prettier<CR>
+nmap <leader>p :CocCommand prettier.forceFormatDocument<CR>
 
 augroup mygroup
   autocmd!
